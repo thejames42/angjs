@@ -1,21 +1,8 @@
 var myModule = angular.module('Angello', []); myModule.factory('AngelloHelper', function(){});
-myModule.service('AngelloModel', function(){});
-myModule.controller('MainCtrl', function(){
-  var main = this;
 
-  main.createStory = function() {
-    main.stories.push({
-      title:'New Story',
-      description: 'Description pending.',
-      criteria: 'Criteria pending.',
-      status: 'Back Log',
-      type:'Feature',
-      reporter:'Pending',
-      assignee:'Pending'
-    });
-  };
-
-  main.stories = [
+myModule.service('AngelloModel', function(){
+  var service = this,
+  stories = [
     {
       title: 'First story',
       description: 'Our first story.', 
@@ -44,5 +31,27 @@ myModule.controller('MainCtrl', function(){
       assignee: 'theJames'
     }
   ];
+
+  service.getStories = function() {
+    return stories;
+  }
 });
+
+myModule.controller('MainCtrl', function(AngelloModel){
+  var main = this;
+  main.stories=AngelloModel.getStories();
+
+  main.createStory = function() {
+    main.stories.push({
+      title:'New Story',
+      description: 'Description pending.',
+      criteria: 'Criteria pending.',
+      status: 'Back Log',
+      type:'Feature',
+      reporter:'Pending',
+      assignee:'Pending'
+    });
+  };
+});
+
 myModule.directive('story', function(){});
