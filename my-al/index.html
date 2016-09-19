@@ -12,9 +12,15 @@
       <div class="callout"
         ng-repeat="story in main.stories"
         ng-click="main.setCurrentStory(story)">
+
         <h4>{{story.title}}</h4>
         <p>{{story.description}}</p>
       </div>
+      <br/>
+      <a class="btn btn-primary" ng-click="main.createStory()">
+        <span class="glyphicon glyphicon-plus"></span>
+        <button>New Story</button>
+      </a>
     </div>
   </div>
 </body>
