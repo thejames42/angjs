@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html ng-app="Angello">
+  <head>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+    <script type="text/javascript" src="Angello.js"></script>
+  </head>
+  <body ng-controller="MainCtrl as main">
+    <div class="navbar navbar-fixed-top navbar-default">
+      <div class="navbar-header">
+        <a class="logo navbar-brand" href="#/">
+          <img src="assets/img/angello.png">
+        </a>
+      </div>
+      <div class="btn-group pull-right" ng-show="main.current-User">
+        <a class="btn btn-danger" href="#/">
+          <span class="glyphicon glyphicon-home"></span>
+          <button>home</button>
+        </a>
+        <a class="btn btn-danger" href="#/users">
+          <span class="glyphicon glyphicon-user"></span>
+          <button>users</button>
+        </a>
+        <a class="btn btn-danger" href="#/dashboard">
+          <span class="glyphicon glyphicon-signal"></span>
+          <button>dashboard</button>
+        </a>
+      </div>
+      <div ng-view=""></div>
+      <div class="modal"></div>
+    </body>
+  </html>
